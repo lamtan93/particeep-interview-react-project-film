@@ -11,3 +11,189 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root{
+  background-color: #fbfbfb;
+}
+
+.header{
+    background: #222;
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.header h3{
+  text-align: center;
+  color: orange;
+  margin: 2px 14px;
+}
+
+.menu{
+  display: flex;
+  flex-flow: row wrap;
+  gap: 15px;
+  margin: 2px 30px;
+}
+
+.menu a{
+  color: white;
+  text-decoration: none;
+}
+
+.menu a:hover{
+  color: orange;
+  text-decoration: none;
+}
+
+
+.listFilmHomePage{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.filter-film{
+  height: 220px;
+  width: 80%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+}
+
+.filter-film-by-name input {
+  width: 50%;
+  height: 30px;
+}
+
+.filter-film h4{
+  font-weight: bold;
+}
+
+.listFilm {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+
+.film{
+    height: 370px;
+    width: 179px;
+    border: 1px solid;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+.film-bottom{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.film img {
+  height: 250px;
+  width: 170px;
+}
+
+.film-head{
+  text-align: center;
+  background: #222;
+}
+
+.film-head p{
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: underline;
+  padding: 6px 1px;
+}
+
+.film-head span{
+  color: orange;
+  font-size: 12px;
+}
+
+.likeDislikeButton{
+  display: flex;
+  flex-flow: row wrap;
+  margin: 4px 3px;
+}
+
+.likeButtton{
+  flex: 1;
+  color: #129cf7;
+  font-size: 12px;
+}
+
+.likeButtton:hover{
+  color: white;
+  background-color: #129cf7;
+  cursor: pointer;
+}
+
+.dislikeButtton{
+  flex: 1;
+  color: red;
+  font-size: 12px;
+}
+
+.dislikeButtton:hover{
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
+
+.deleteButtton{
+  background-color: #320e0e;
+  color: white;
+}
+
+.deleteButtton:hover{
+  /* background-color: #cb0000; */
+  background-color: rgb(250, 128, 128);
+  color: white;
+  /* font-size: 14px; */
+  cursor: pointer;
+}
+.jauges{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.jaugeLike{
+  background: #4d7de9;
+  height: 6px;
+  /* width: 88px; */
+  margin-top: 1px;
+}
+
+.jaugeDislike{
+  background: #be2a2a;
+  height: 6px;
+  /* width: 88px; */
+  margin-top: 1px;
+}
+
+
+.pagination{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 34px 10px;
+}
+.pages{
+    background: orange;
+    height: 20px;
+    width: 20px;
+    padding: 5px 5px;
+    text-align: center;
+    margin: 0px 10px;
+}
