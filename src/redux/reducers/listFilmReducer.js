@@ -37,18 +37,13 @@ const listFilmReducer = (state = initState, action) => {
             return state?.filter( f => f?.id !== action.payload);
         
         case LIST_FILM_UPDATE_LIKE_TYPE:
-            console.log({
-                stateLikeBefore: state?.[action?.payload?.id]?.likes,
-            });
             let filmLiked = state?.filter( f => f?.id === action?.payload?.id)[0];
-            console.log({
-                filmLiked,
-            })
             if(action?.payload?.isClicked){
                  filmLiked['likes']++;
             }else{
                 filmLiked['likes']--;
             }    
+            filmLiked['percentageLikesDislikes']= getPercentagesLikesDislikes(filmLiked?.likes, filmLiked?.dislikes);
             return state;
         
         case LIST_FILM_UPDATE_DISLIKE_TYPE:
@@ -58,6 +53,7 @@ const listFilmReducer = (state = initState, action) => {
             }else{
                 filmDisliked['dislikes']--;
             }  
+            filmDisliked['percentageLikesDislikes']= getPercentagesLikesDislikes(filmDisliked?.likes, filmDisliked?.dislikes);
             return state;
         default: 
             return state;

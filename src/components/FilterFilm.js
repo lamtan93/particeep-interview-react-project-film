@@ -9,7 +9,10 @@ const {
   searchByCategories,
 } = filterFilmAction || {};
 
-const FilterFilm = () => {
+const FilterFilm = ({
+    words,
+}) => {
+
 const dispatch = useDispatch();
 const allCategoriesStore = useSelector(allCategoriesSelector);
     
@@ -36,11 +39,11 @@ const handleFilterChangeCategories = (categoriesArrObj) => {
     return(
         <div className="filter-film">
             <div className="filter-film-by-name">
-                <h4>Search by name</h4>
+                <h4>{words?.SEARCH_BY_NAME_LABEL}</h4>
                 <input type="text" placeholder="Chercher votre film" value={filmName} onChange={handleOnChangeSearchByName} />
             </div>
             <div className="filter-film-by-multiple-categorie">
-            <h4>Search by multiple categorie</h4>
+            <h4>{words?.SEARCH_BY_MULTIPLE_CATEGORIE}</h4>
             <Select value={filterChangeCategories}
                 onChange={handleFilterChangeCategories}
                 options={allCategoriesStore} 

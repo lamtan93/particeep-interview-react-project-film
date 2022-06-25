@@ -5,19 +5,18 @@ export const searchByCategories = (state) => state?.filterFilm?.categories;
 
 export const allCategoriesSelector = (state) => {
     let listFilmTmp = [...state?.listFilm];
-    let categories = [];
-    let i = 0;
-    for(let j = 1; j < listFilmTmp.length; j++){
-        let cateroryI = listFilmTmp[i]?.category;
-        let categoryJ = listFilmTmp[j]?.category
-            if(cateroryI !== categoryJ){
-                i++;
-                listFilmTmp[i] = listFilmTmp[j];
-                categories.push({
-                    label: cateroryI,
-                    value: cateroryI,
-                })
-            }
+    let categoryFrequency = {};
+    const categories = [];
+    listFilmTmp.map( f => {
+        categoryFrequency[f?.category] = categoryFrequency[f?.category] ? categoryFrequency[f?.category] + 1 : 1;
+        return categoryFrequency;
+
+    });
+    for(let key in categoryFrequency){
+        categories.push({
+            value: key,
+            label: key,
+        })
     }
     return categories;
 }

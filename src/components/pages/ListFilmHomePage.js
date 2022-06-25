@@ -42,9 +42,11 @@ class ListFilmHomePage extends Component {
         return(
             <div className='listFilmHomePage'>
                 <Header 
-                   words={filmDico}
+                    words={filmDico}
                 />
-                <FilterFilm />
+                <FilterFilm 
+                    words={filmDico}
+                />
                 <ListFilmView 
                     words={filmDico}
                     listFilmFetchDataloading={listFilmFetchDataloading}

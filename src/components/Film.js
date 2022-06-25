@@ -13,8 +13,6 @@ const Film = ({
     words,
     film,
     handleDeleteFilm,
-    percentageLikes,
-    percentageDislikes,
 }) => {
     const dispatch = useDispatch();
     const [
@@ -48,6 +46,9 @@ const Film = ({
             setIsClickedDislikeButton(false);
             setStyleClickedDislikeButton(null);
             dispatch(updateLike({id, isClicked: true}));
+            if(isClickedDislikeButton){
+                dispatch(updateDislike({id, isClicked: false}));
+            }
         }else{
             setStyleClickedLikeButton(null);
             dispatch(updateLike({id, isClicked: false}));
@@ -65,6 +66,9 @@ const Film = ({
             setIsClickedLikeButton(false);
             setStyleClickedLikeButton(null);
             dispatch(updateDislike({id, isClicked: true}));
+            if(isClickedLikeButton){
+                dispatch(updateLike({id, isClicked: false}));
+            }
         }else{
             setStyleClickedDislikeButton(null);
             dispatch(updateDislike({id, isClicked: false}));
@@ -79,13 +83,19 @@ const Film = ({
                 </div>
                 <img src={mountain} alt="mountain-img"/>
                 <div className="jauges">
-                    <div style={{width: percentageLikes }} className="jaugeLike"></div>
-                    <div style={{width: percentageDislikes }} className="jaugeDislike"></div>
+                    <div className='jaugeLike'>
+                        <span className='percentage'>{film?.percentageLikesDislikes?.percentageLikes?.replace('px', '%')}</span>
+                        <div style={{width: film?.percentageLikesDislikes?.percentageLikes }} className="jaugeLikeElem"></div>
+                    </div>
+                    <div className='jaugeDislike'>
+                        <div style={{width: film?.percentageLikesDislikes?.percentageDislikes }} className="jaugeDislikeElem"></div>
+                        <span className='percentage'>{film?.percentageLikesDislikes?.percentageDislikes?.replace('px', '%')}</span>
+                    </div>
                 </div>
                 <div className="film-bottom" >
                     <div className="likeDislikeButton">
-                        <button style={styleClickedLikeButton} className="likeButtton" onClick={() => handleLikeClick(film?.id)} >Like({film?.likes})</button>
-                        <button style={styleClickedDislikeButton} className="dislikeButtton" onClick={() => handleDislikeClick(film?.id)}>DisLike({film?.dislikes})</button>
+                        <button style={styleClickedLikeButton} className="likeButtton" onClick={() => handleLikeClick(film?.id)} >{words?.LIKE_LABEL}({film?.likes})</button>
+                        <button style={styleClickedDislikeButton} className="dislikeButtton" onClick={() => handleDislikeClick(film?.id)}>{words?.DISLIKE_LABEL}({film?.dislikes})</button>
                     </div>
                     <button className="deleteButtton" onClick={() => handleDeleteFilm(film?.id)}>{words?.DELETE_LABEL}</button>
                 </div>

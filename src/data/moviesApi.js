@@ -60,6 +60,38 @@ const movies = [
       likes: 22,
       dislikes: 12
     },
+
+    {
+      id: '11',
+      title: 'Midnight Sun 2',
+      category: 'Comedy',
+      likes: 4,
+      dislikes: 3
+    }, {
+      id: '12',
+      title: 'Les indestructibles 3',
+      category: 'Animation',
+      likes: 10,
+      dislikes: 26
+    }, {
+      id: '13',
+      title: 'Sans un bruit 1',
+      category: 'Thriller',
+      likes: 30,
+      dislikes: 20
+    }, {
+      id: '14',
+      title: 'Creed III',
+      category: 'Drame',
+      likes: 8,
+      dislikes: 17
+    }, {
+      id: '15',
+      title: 'Pulp Fiction 2',
+      category: 'Thriller',
+      likes: 12,
+      dislikes: 7
+    },
   ]
   
   export const moviesApi = new Promise((resolve, reject) => setTimeout(resolve, 500, movies))
